@@ -1,0 +1,271 @@
+/* Chennai ChipTech IT & Computer Services - Enterprise Styling
+   Supports Night Mode (Dark) and Lite Mode (Light) with smooth transitions
+*/
+
+:root {
+  --primary-glow: rgba(14, 165, 233, 0.35);
+  --accent-cyan: #06b6d4;
+  --accent-blue: #0284c7;
+}
+
+/* Light Mode Defaults */
+html:not(.dark) {
+  --bg-main: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-hover: #ffffff;
+  --bg-input: #ffffff;
+  --bg-header: rgba(255, 255, 255, 0.92);
+  --bg-footer: #0f172a;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #475569;
+  --border-main: #e2e8f0;
+  --border-highlight: rgba(14, 165, 233, 0.4);
+}
+
+/* Dark Mode Defaults */
+html.dark {
+  --bg-main: #060a14;
+  --bg-card: rgba(15, 23, 42, 0.85);
+  --bg-card-hover: rgba(30, 41, 59, 0.95);
+  --bg-input: #0f172a;
+  --bg-header: rgba(6, 10, 20, 0.92);
+  --bg-footer: #020617;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-light: #cbd5e1;
+  --border-main: rgba(51, 65, 85, 0.6);
+  --border-highlight: rgba(56, 189, 248, 0.3);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #090e1a;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Background Cyber Grid */
+html.dark .cyber-grid-bg {
+  background-color: #060a14;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.15) 0%, transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+html:not(.dark) .cyber-grid-bg {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.1) 0%, transparent 60%),
+    linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* Tech Glass Cards - Adaptive */
+.glass-card {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.dark .glass-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 18px 40px -10px rgba(14, 165, 233, 0.25);
+  transform: translateY(-3px);
+}
+
+html:not(.dark) .glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+}
+
+html:not(.dark) .glass-card:hover {
+  border-color: rgba(14, 165, 233, 0.6);
+  box-shadow: 0 14px 30px -4px rgba(14, 165, 233, 0.15), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Light / Dark Mode Inputs */
+html:not(.dark) input,
+html:not(.dark) select,
+html:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html:not(.dark) input:focus,
+html:not(.dark) select:focus,
+html:not(.dark) textarea:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  transition: all 0.3s ease;
+}
+
+html.dark .theme-toggle-btn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+}
+
+html:not(.dark) .theme-toggle-btn {
+  background: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+
+.theme-toggle-circle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0ea5e9;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+html.dark .theme-toggle-circle {
+  transform: translateX(24px);
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* Status Badges */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+.badge-new { background: rgba(56, 189, 248, 0.15); color: #0284c7; border: 1px solid rgba(56, 189, 248, 0.3); }
+html.dark .badge-new { color: #38bdf8; }
+.badge-review { background: rgba(250, 204, 21, 0.15); color: #b45309; border: 1px solid rgba(250, 204, 21, 0.3); }
+html.dark .badge-review { color: #facc15; }
+.badge-contacted { background: rgba(168, 85, 247, 0.15); color: #7e22ce; border: 1px solid rgba(168, 85, 247, 0.3); }
+html.dark .badge-contacted { color: #c084fc; }
+.badge-resolved, .badge-confirmed { background: rgba(34, 197, 94, 0.15); color: #15803d; border: 1px solid rgba(34, 197, 94, 0.3); }
+html.dark .badge-resolved, html.dark .badge-confirmed { color: #4ade80; }
+.badge-pending { background: rgba(251, 146, 60, 0.15); color: #c2410c; border: 1px solid rgba(251, 146, 60, 0.3); }
+html.dark .badge-pending { color: #fb923c; }
+.badge-cancelled { background: rgba(244, 63, 94, 0.15); color: #be123c; border: 1px solid rgba(244, 63, 94, 0.3); }
+html.dark .badge-cancelled { color: #f43f5e; }
+
+/* Custom Modal Animation */
+.modal-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content-box {
+  transform: scale(0.95) translateY(15px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-overlay.active .modal-content-box {
+  transform: scale(1) translateY(0);
+}
+
+/* Toast Notification */
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+.toast-msg {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast-msg.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.toast-success { background: #064e3b; color: #a7f3d0; border: 1px solid #059669; }
+.toast-error { background: #4c0519; color: #fecdd3; border: 1px solid #e11d48; }
+.toast-info { background: #082f49; color: #bae6fd; border: 1px solid #0284c7; }
+
+/* Pulse animation */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.15); }
+}
+.pulse-indicator {
+  animation: pulseGlow 2.5s infinite;
+}
